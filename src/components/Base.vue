@@ -3,10 +3,6 @@
     <Layout>
       <Header :style="{ width: '100%', backgroundColor: '#2b3137'}">
         <div class="layout-logo">
-          <img
-            src="//s0.rong360.com/upload/png/e7/52/e7520efb4ad1d218a68e5db6d6ec479d.png"
-            class="logo"
-          >
           <h2 class="title">后台系统</h2>
         </div>
         <ul class="login-info">
