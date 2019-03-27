@@ -1,0 +1,9 @@
+{
+    "code": 200,
+    "errmsg": "success",
+    "data": {
+        "telenumber": "13012311234",
+        "chinesename": "魔方",
+        "name": "liuweiyu"
+    }
+}
