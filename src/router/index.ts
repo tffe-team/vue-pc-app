@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
+const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home.vue');
+const Login = () => import(/* webpackChunkName: "login" */ '@/components/Login.vue');
+const Base = () => import(/* webpackChunkName: "base" */ '@/components/Base.vue');
+const List = () => import(/* webpackChunkName: "list" */ '@/components/List.vue');
 
-const Home = (r:any) => require.ensure([], () => r(require(/* webpackChunkName: "Home" */ '@/components/Home'),  'Home'))
-const Login = (r:any) => require.ensure([], () => r(require(/* webpackChunkName: "Login" */ '@/components/Login'),  'Login'))
-const Base = (r:any) => require.ensure([], () => r(require(/* webpackChunkName: "Base" */ '@/components/Base'),  'Base'))
-const Model = (r:any) => require.ensure([], () => r(require(/* webpackChunkName: "List" */ '@/components/List'),  'List'))
 
 export default new Router({
   mode: 'history',
@@ -39,7 +39,7 @@ export default new Router({
       {
         path: 'model',
         name: 'model',
-        component: Model
+        component: List
       }
     ]
     }
