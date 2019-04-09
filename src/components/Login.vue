@@ -25,73 +25,73 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import {login} from "@/api/index.ts"
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { login } from '@/api/index'
 @Component
 export default class Login extends Vue {
-  btnLoading: boolean = false;
-  remember: boolean = false;
+  btnLoading = false
+  remember = false
   formInfo: any = {
-    userName: "",
-    userPassword: ""
-  };
+    userName: '',
+    userPassword: ''
+  }
+  validationLogin = {}
   validateUserName = (rule: string, value: string, callback: Function) => {
     if (!value) {
-      callback(new Error("请输入姓名"));
+      callback(new Error('请输入姓名'))
     } else {
-      callback();
+      callback()
     }
-  };
+  }
   validateUserPassword = (rule: string, value: string, callback: Function) => {
     if (!value) {
-      callback(new Error("请输入密码"));
+      callback(new Error('请输入密码'))
     } else {
-      callback();
+      callback()
     }
-  };
-  validationLogin: any = {
-    userName: { validator: this.validateUserName, trigger: "blur" },
-    userPassword: { validator: this.validateUserPassword, trigger: "blur" }
-  };
+  }
   created() {
+    this.validationLogin = {
+      userName: { validator: this.validateUserName, trigger: 'blur' },
+      userPassword: { validator: this.validateUserPassword, trigger: 'blur' }
+    }
     this._getLoginInfo()
   }
   submitLogin(): void {
-    const myForm: any = this.$refs.loginForm;
+    const myForm: any = this.$refs.loginForm
     myForm.validate((valid: any) => {
       if (valid) {
-        this.btnLoading = true;
+        this.btnLoading = true
         login({
           username: this.formInfo.userName,
           password: this.formInfo.userPassword
         }, (res: any) => {
-          if(res.code === 200) {
-              localStorage.setItem('realName', res.data.chinesename);
-              if(this.remember) {
-                localStorage.setItem('loginInfo', [this.formInfo.userName, this.formInfo.userPassword].join('_'));
+          if (res.code === 200) {
+              localStorage.setItem('realName', res.data.chinesename)
+              if (this.remember) {
+                localStorage.setItem('loginInfo', [this.formInfo.userName, this.formInfo.userPassword].join('_'))
               } else {
-                localStorage.removeItem('loginInfo');
+                localStorage.removeItem('loginInfo')
               }
-              console.log(res.data, 'data');
               this.$Message.success({
                 content: '登录成功',
-                onClose: ():void => {
-                  window.location.href = "/home";
+                onClose: (): void => {
+                  window.location.href = '/home'
                 }
-              });
+              })
           } else {
-            this.btnLoading = false;
+            this.btnLoading = false
           }
         })
       }
-    });
+    })
   }
   _getLoginInfo(): void {
-    let loginInfo = localStorage.getItem('loginInfo');
-    if(loginInfo) {
-      this.remember = true;
-      this.formInfo.userName = loginInfo.split('_')[0];
-      this.formInfo.userPassword = loginInfo.split('_')[1];
+    const loginInfo = localStorage.getItem('loginInfo')
+    if (loginInfo) {
+      this.remember = true
+      this.formInfo.userName = loginInfo.split('_')[0]
+      this.formInfo.userPassword = loginInfo.split('_')[1]
     }
   }
 }

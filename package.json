@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+        "dev": "rkit serve",
+        "build": "rkit build",
+        "lint": "rkit lint"
     },
     "dependencies": {
         "axios": "^0.18.0",
@@ -16,23 +16,25 @@
         "vuex-class": "^0.3.1"
     },
     "devDependencies": {
+        "@angular/compiler": "^7.2.12",
+        "@angular/core": "^7.2.12",
         "@vue/cli-plugin-babel": "^3.2.0",
         "@vue/cli-plugin-eslint": "^3.2.0",
         "@vue/cli-plugin-typescript": "^3.2.0",
-        "@vue/cli-service": "^3.2.0",
+        "@vue/cli-service": "^3.5.3",
         "@vue/eslint-config-typescript": "^3.2.0",
+        "ajv": "^6.10.0",
         "babel-eslint": "^10.0.1",
         "codelyzer": "^4.5.0",
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0-0",
-        "node-sass": "^4.10.0",
-        "sass-loader": "^7.1.0",
         "tslint": "^5.11.0",
-        "typescript": "^3.1.6",
+        "typescript": "^3.1.1",
         "vue-class": "^2.0.1",
         "vue-class-component": "^6.0.0",
         "vue-property-decorator": "^7.0.0",
-        "vue-template-compiler": "^2.5.21"
+        "vue-template-compiler": "^2.5.21",
+        "zone.js": "^0.8.29"
     },
     "eslintConfig": {
         "root": true,

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import iView from 'iview';
+import iView from 'iview'
 
-const {Modal} = iView;
+const {Modal} = iView
 
 let axiosInstance: any = {}
 axiosInstance = axios.create({
@@ -12,11 +12,11 @@ axiosInstance = axios.create({
   }
 })
 
-axiosInstance.interceptors.request.use((config : any) => {
+axiosInstance.interceptors.request.use((config: any) => {
   if (config.method.toLowerCase() === 'get') {
     config.params = config.data
   }
-  let requestConfig = Object.assign({
+  const requestConfig = Object.assign({
     responseType: 'json'
   }, config)
   return requestConfig

@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home.vue');
-const Login = () => import(/* webpackChunkName: "login" */ '@/components/Login.vue');
-const Base = () => import(/* webpackChunkName: "base" */ '@/components/Base.vue');
-const List = () => import(/* webpackChunkName: "list" */ '@/components/List.vue');
+const Home = () => import(/* webpackChunkName: "home" */ '@/components/Home.vue')
+const Login = () => import(/* webpackChunkName: "login" */ '@/components/Login.vue')
+const Base = () => import(/* webpackChunkName: "base" */ '@/components/Base.vue')
+const List = () => import(/* webpackChunkName: "list" */ '@/components/List.vue')
 
 
 export default new Router({

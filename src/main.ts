@@ -3,18 +3,18 @@ import App from '@/App.vue'
 import router from './router'
 import store from './store'
 
-import iView from 'iview';
-import 'iview/dist/styles/iview.css';
+import iView from 'iview'
+import 'iview/dist/styles/iview.css'
 
-const {LoadingBar} = iView;
+const {LoadingBar} = iView
 
-Vue.use(iView);
+Vue.use(iView)
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   LoadingBar.start()
   next()
-});
+})
 router.afterEach(route => {
   LoadingBar.finish()
   window.scrollTo(0, 0)

@@ -1,1 +1,1 @@
-export const list =  (state: any) => state.list;
+export const list =  (state: any) => state.list

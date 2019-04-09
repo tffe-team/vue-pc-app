@@ -5,7 +5,7 @@ const JsonAssetHtmlPlugin = require('./build/plugin/json-asset-html-webpack-plug
 module.exports = {
     lintOnSave: process.env.NODE_ENV !== 'production',
     assetsDir: proEnv.OUT_PATH,
-    publicPath: process.env.NODE_ENV === 'production' ? `//static.yuanzidai.com/tfstatic/${proEnv.PROJECT_NAME}` : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? `//static.xxx.com/tfstatic/${proEnv.PROJECT_NAME}` : '/',
     filenameHashing: true,
     productionSourceMap: false,
     pages: {
@@ -21,12 +21,13 @@ module.exports = {
         host: '0.0.0.0',
         hot: true,
         disableHostCheck: true,
+        overlay: {
+            warnings: true,
+            errors: true
+        },
         // proxy: {
         //     '/api': {
-        //         target: "http://10.12.20.39:19000",
-        //         // port: 19000,
-        //         // host: '10.12.20.39',
-        //         // port
+        //         target: "http://10.0.0.1:19000",
         //         ws: true,
         //         changeOrigin: true
         //     }

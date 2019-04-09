@@ -33,20 +33,20 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { loginOut } from '@/api/'
+import { Component, Prop, Vue } from 'vue-property-decorator'
+import { loginOut } from '@/api/index'
 
 @Component
 export default class Base extends Vue {
-  userName: string|null = localStorage.getItem("realName");
+  userName: string|null = localStorage.getItem('realName')
   activeName: string|undefined = ''
-  userLoginOut() :void {
+  userLoginOut(): void {
     loginOut((res: any) => {
-      if (res.code ===200) {
+      if (res.code === 200) {
         this.$Message.success({
           content: '退出登录',
-          onClose: ():void => {
-            window.location.href = "/login";
+          onClose: (): void => {
+            window.location.href = '/login'
           }
         })
       }

@@ -24,65 +24,65 @@
   </div>
 </template>
 <script lang="ts">
-import { Action, Getter } from 'vuex-class';
-import { Component, Vue } from "vue-property-decorator";
-import {getPageList} from "@/common/until";
+import { Action, Getter } from 'vuex-class'
+import { Component, Vue } from 'vue-property-decorator'
+import { getPageList } from '@/common/until'
 
 @Component
 export default class Model extends Vue {
 
-  @Getter('list') list: any;
-  @Action('getList') getList: any;
+  @Getter('list') list: any
+  @Action('getList') getList: any
 
-  isTableLoading: boolean = false;
-  searchLoading: boolean = false;
+  isTableLoading = false
+  searchLoading = false
   queryInfo: any = {
-    name: ""
-  };
+    name: ''
+  }
   pageQueryInfo: any = {
     page_num: 1,
     per_page_num: 1000000,
     where_str: {}
-  };
+  }
   pageInfo: any = {
     page: 1,
     total: 0,
     pageSize: 20
-  };
+  }
   curListInfo: any = []
   columns1: any = [
-    { title: "名称", key: "title" },
-    { title: "创建时间", key: "create_time" },
-    { title: "创建人", key: "operator" }
-  ];
+    { title: '名称', key: 'title' },
+    { title: '创建时间', key: 'create_time' },
+    { title: '创建人', key: 'operator'}
+  ]
 
   mounted() {
-    this._getModelList();
+    this._getModelList()
   }
 
   search(): void {
-    this.searchLoading = true;
+    this.searchLoading = true
     Object.assign(this.pageQueryInfo, {
       where_str: this.queryInfo,
       page_num: 1
-    });
-    this._getModelList();
+    })
+    this._getModelList()
   }
    jumPage(page: number): void {
     Object.assign(this.pageInfo, {
      page
-    });
+    })
     this.curListInfo = getPageList(this.list, this.pageInfo)
   }
   _getModelList(): void {
-    this.isTableLoading = true;
-    this.pageInfo.page = 1;
+    this.isTableLoading = true
+    this.pageInfo.page = 1
     this.getList(this.pageQueryInfo).then(() => {
-      this.pageInfo.total = this.list.length;
-      this.curListInfo = getPageList(this.list, this.pageInfo);
+      this.pageInfo.total = this.list.length
+      this.curListInfo = getPageList(this.list, this.pageInfo)
     })
-    this.isTableLoading = false;
-    this.searchLoading = false;
+    this.isTableLoading = false
+    this.searchLoading = false
   }
 }
 </script>
