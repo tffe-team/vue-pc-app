@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "rkit serve",
-        "build": "rkit build",
-        "lint": "rkit lint"
+        "dev": "rui-rkit serve",
+        "build": "rui-rkit build",
+        "lint": "rui-rkit lint"
     },
     "dependencies": {
         "axios": "^0.18.0",
