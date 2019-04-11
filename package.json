@@ -29,6 +29,8 @@
         "eslint": "^5.8.0",
         "eslint-plugin-vue": "^5.0.0-0",
         "md5": "^2.2.1",
+        "node-sass": "^4.11.0",
+        "sass-loader": "^7.1.0",
         "tslint": "^5.11.0",
         "typescript": "^3.1.1",
         "vue-property-decorator": "^7.0.0",
