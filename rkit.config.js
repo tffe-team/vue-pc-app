@@ -1,6 +1,5 @@
-const path = require('path');
-const proEnv = require('./build/prod.env');
-const JsonAssetHtmlPlugin = require('./build/plugin/json-asset-html-webpack-plugin');
+const path = require('path')
+const proEnv = require('./build/prod.env')
 
 module.exports = {
     lintOnSave: process.env.NODE_ENV !== 'production',
@@ -14,7 +13,7 @@ module.exports = {
             template: 'public/index.html',
             filename: 'index.html',
             title: '时光金科pc模版',
-            chunks: ['chunk-vendors', 'chunk-common', 'index']
+            chunks: ['index']
         }
     },
     devServer: {
@@ -37,16 +36,6 @@ module.exports = {
                 const apiFile = path.join(__dirname, req.path + '.json')
                 return res.sendFile(apiFile)
             });
-        }
-    },
-    chainWebpack: config => {
-        if (process.env.NODE_ENV === 'production') {
-            config
-                .plugin('html')
-                .use(JsonAssetHtmlPlugin, [{
-                    path: config.output.baseUrl,
-                    subDir: proEnv.OUT_PATH
-                }])
         }
     }
 }
