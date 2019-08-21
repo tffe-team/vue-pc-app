@@ -1,4 +1,3 @@
-# mofang
 
 ## Project setup
 ```
