@@ -8,7 +8,7 @@
         "lint": "rui-rkit lint"
     },
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "iview": "^3.3.3",
         "vue": "^2.5.21",
         "vue-router": "^3.0.2",
