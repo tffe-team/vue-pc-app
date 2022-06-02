@@ -17,7 +17,7 @@
     },
     "devDependencies": {
         "@angular/compiler": "^7.2.12",
-        "@angular/core": "^7.2.12",
+        "@angular/core": "^11.0.5",
         "@vue/cli-plugin-babel": "^3.2.0",
         "@vue/cli-plugin-eslint": "^3.2.0",
         "@vue/cli-plugin-typescript": "^3.2.0",
